@@ -1,8 +1,12 @@
-let path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: [
+      'react-hot-loader/patch',
+      './src/index.js'
+    ],
     output: {
         path: path.join(__dirname, 'dist', 'assets'),
         filename: 'bundle.js'
@@ -16,9 +20,17 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: [
+            '.js',
+            '.jsx'
+        ],
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
+    },
     devtool: '#source-map',
     devServer: {
         contentBase: './dist',
-        hot: true,
     }
 }

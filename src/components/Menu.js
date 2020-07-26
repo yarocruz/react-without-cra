@@ -1,5 +1,6 @@
 import React from 'react';
 import Recipe from "./Recipe";
+import { hot } from 'react-hot-loader/root';
 
 function Menu({ recipes }) {
     return (
@@ -16,4 +17,4 @@ function Menu({ recipes }) {
     )
 }
 
-export default Menu
+export default hot(Menu);
